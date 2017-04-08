@@ -8,37 +8,54 @@ public class GarageDoorSystem {
 	static Light lit = new Light();
 	static StateMachine machine = new StateMachine();
 	static Scanner keyboard = new Scanner(System.in);
-	boolean on = false;
+	static boolean on = false;
+	
 	
 	public static void main(String[] args) {
-		System.out.println("type 'POWER' to turn system on");
-		boolean power=true;
-		while(power){
-			power = false;
+		
+		boolean query = false;
+		
+		while (!query) {
+			
+			System.out.println("type 'POWER' to turn system on");
+			String consol = keyboard.nextLine();
+		
+			if (consol.equalsIgnoreCase("power")) {
+				System.out.println("123");
+				on = true;
+				query = true;
+			}
+		
+			else {
+				System.out.println("Invalid entry");
+			}
+		}
+		
+		while(on) {
+			
 			String input;
 			input = keyboard.nextLine();
-				
+			System.out.println("We made it");
 			if(input.equalsIgnoreCase("power")) {
 				
-				power = true;
+				//power = true;
 				System.out.println("Garage door is 'on'");
 				System.out.println("List of Commands: \n" 
 									+ " LCLICK for light click\n"
 									+ " DCLICK for door click\n"
 									+ " LIMIT for limit switch\n"
 									+ " SAFETY for safety trigger \n"
-									+ " OFF Power down and exit the program ");
-				
+									+ " OFF Power down and exit the program ");	
 			}
 			
 			else {
 				System.out.println("power most be turned on to use commands, enter 'Power'");
 			}
 			
-			if(input.equalsIgnoreCase("off")){
+			if(input.equalsIgnoreCase("off")) {
 				
 				System.out.println("System is now off");
-				power = false;
+				//power = false;
 			}
 			
 			if(input.equalsIgnoreCase("lclick")) {
@@ -54,27 +71,33 @@ public class GarageDoorSystem {
 			
 			if(input.equalsIgnoreCase("dclick")) {
 				
-				if (machine.currentState == 0) {	// door is currently closed
+				if (machine.currentState == 0) {							// door is currently closed
 					
-					machine.next(0);
-				}
-				
-				else if (machine.currentState == 1) {	// door is currently opened
-					
-				}
-				
-				else if (machine.currentState == 2) { // door is currently opening
-					machine.next(0);
+					machine.next(0);										// return currentState = 2
 					System.out.println("Door clicked: Door opening");
 				}
 				
-				else if (machine.currentState == 3) {					// door is currently closing
+				if (machine.currentState == 1) {							// door is currently opened
 					
+					machine.next(0);										// return currentState = 3
 					System.out.println("Door clicked: Door closing");
 				}
 				
-				else {
+				if (machine.currentState == 2) { 							// door is currently opening
 					
+					machine.next(0);										
+					System.out.println("Door clicked: Door is stopped");
+				}
+				
+				if (machine.currentState == 3) {							// door is currently closing
+					
+					machine.next(0);
+					System.out.println("Door clicked: Door is stopped");
+				}
+				
+				else {														// door is stopped, shouldn't ever get into this case
+					
+					System.out.println("Something went wrong with dClick");
 				}
 				
 				/*if(DOOR.open == false) {
@@ -95,6 +118,8 @@ public class GarageDoorSystem {
 			if(input.equalsIgnoreCase("safety")) {
 				DOOR.open();
 			}
+			
+			System.out.println("Enter a command: ");
 		}	
 	}
 }
