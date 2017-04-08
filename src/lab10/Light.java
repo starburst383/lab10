@@ -1,38 +1,36 @@
 package lab10;
-
-import java.util.Timer;
-import java.util.TimerTask;
-
+import java.time.*;
 
 public class Light {
-	
+	Clock c;
 	boolean light;
-	Timer timer;
 	
 	public Light () {
 		
 		//off by default
 		light = false;
-	}
-	
-	public void schedule() {
 		
-		timer.schedule(lightTask(), 20);
 	}
 	
-	private TimerTask lightTask() {
-		// TODO Auto-generated method stub
-		return null;
+	public void ON()
+	{
+		light = true;
+		System.out.println("light is on");
 	}
+	public void OFF()
+	{
+		light = false;
+		System.out.println("light is off");
 
-	class lightTask extends TimerTask {
-		
-		public void run() {
-			
-			System.out.println("light off");
-			light = false;
-		}
-		
+	}
+	public void timer()
+	{
+		ON();
+		//c
+	}
+	public void testTimer()
+	{
 		
 	}
+	
 }
