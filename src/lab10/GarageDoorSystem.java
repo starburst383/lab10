@@ -39,7 +39,8 @@ public class GarageDoorSystem {
 								+ " DCLICK for door click\n"
 								+ " LIMIT for limit switch\n"
 								+ " SAFETY for safety trigger \n"
-								+ " OFF Power down and exit the program ");	
+								+ " OFF Power down and exit the program ");
+			System.out.println("Enter a command: ");
 			
 			String input = keyboard.nextLine();
 			
@@ -54,10 +55,12 @@ public class GarageDoorSystem {
 				
 				if(lit.light == false){
 					lit.light = true;
+					System.out.println("Light is on");
 				}
 				
 				else if(lit.light == true){
 					lit.light =false;
+					System.out.println("Light is off");
 				}
 			}
 			
@@ -79,10 +82,15 @@ public class GarageDoorSystem {
 			}
 			
 			if (input.equalsIgnoreCase("safety")) {
-				DOOR.open();
+				
+				if (machine.currentState >= 0 && machine.currentState <= 3) {
+					
+					machine.next(3);
+					machine.Do();
+				}
 			}
 			
-			System.out.println("Enter a command: ");
+			
 		}	
 	}
 }
