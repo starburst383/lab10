@@ -2,14 +2,17 @@ package lab10;
 import java.time.*;
 
 public class Light {
+	//current time
 	Clock c;
+	//snapshot of time
+	Instant snap;
 	boolean light;
 	
 	public Light () {
 		
 		//off by default
 		light = false;
-		
+		c.getZone();
 	}
 	
 	public void ON()
@@ -26,11 +29,15 @@ public class Light {
 	public void timer()
 	{
 		ON();
-		//c
+		snap = c.instant();
 	}
 	public void testTimer()
 	{
-		
+		if (snap.toEpochMilli() < c.millis()-20000)
+		{
+			OFF();
+		}
 	}
 	
 }
+
