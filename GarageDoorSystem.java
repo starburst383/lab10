@@ -1,4 +1,5 @@
 package lab10;
+import java.util.*;
 
 public class GarageDoorSystem {
 	static GarageDoor DOOR = new GarageDoor();
