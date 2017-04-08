@@ -102,12 +102,14 @@ public StateMachine()
 			System.out.println("door is opening");
 			GarageDoorSystem.lit.testTimer();
 			GarageDoorSystem.lit.timer();
+			
 		}
 		else if(currentState == 3)
 		{
 			DOOR.onClick();
 			System.out.println("door is closing");
 			GarageDoorSystem.lit.testTimer();
+			
 		}
 		else
 		{
