@@ -1,54 +1,43 @@
-package lab10;
+package Garage;
 
-import java.util.Timer;
+import java.util.*;
 
 public class GarageDoor {
+	
 	boolean open;
-	boolean light;
 	Timer timer;
 	Motor motor = new Motor();
 	
-	public GarageDoor()
-	{
+	public GarageDoor() {
 		//closed by default
 		open = false;
-		//off by default
-		light = false;
 		//light 20 second timer
 		timer = new Timer();
 	}
-	public void open()
-	{
-		light = true;
-		timer.schedule(new lightTask(), 20);
+	
+	public void open() {
+		
+		motor.on();
 	}
-	public void close()
-	{
+	
+	public void close() {
+		
 		
 	}
-	public void stop()
-	{
+	
+	public void stop() {
 		
 	}
-	public void onClick()
-	{
+	
+	public void onClick() {
 		
 	}
-	public void onSaftey()
-	{
+	
+	public void onSaftey() {
 		
 	}
-	public void onLimit()
-	{
+	
+	public void onLimit() {
 		
-	}
-	//will turn the light off after 20 seconds
-	class lightTask extends TimerTask
-	{
-		public void run()
-		{
-			System.out.println("light off");
-			light = false;
-		}
-	}
+	}	
 }
