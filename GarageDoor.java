@@ -18,6 +18,7 @@ public class GarageDoor {
 	}
 	public void open()
 	{
+		light = true;
 		timer.schedule(new lightTask(), 20);
 	}
 	public void close()
