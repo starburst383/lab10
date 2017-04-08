@@ -21,7 +21,7 @@ public class GarageDoorSystem {
 			String consol = keyboard.nextLine();
 		
 			if (consol.equalsIgnoreCase("power")) {
-				System.out.println("123");
+				
 				on = true;
 				query = true;
 			}
@@ -32,25 +32,18 @@ public class GarageDoorSystem {
 		}
 		
 		while(on) {
-			
-			String input;
-			input = keyboard.nextLine();
-			System.out.println("We made it");
-			if(input.equalsIgnoreCase("power")) {
 				
-				//power = true;
-				System.out.println("Garage door is 'on'");
-				System.out.println("List of Commands: \n" 
-									+ " LCLICK for light click\n"
-									+ " DCLICK for door click\n"
-									+ " LIMIT for limit switch\n"
-									+ " SAFETY for safety trigger \n"
-									+ " OFF Power down and exit the program ");	
-			}
 			
-			else {
-				System.out.println("power most be turned on to use commands, enter 'Power'");
-			}
+			System.out.println("Garage door is 'on'");
+			System.out.println("List of Commands: \n" 
+								+ " LCLICK for light click\n"
+								+ " DCLICK for door click\n"
+								+ " LIMIT for limit switch\n"
+								+ " SAFETY for safety trigger \n"
+								+ " OFF Power down and exit the program ");	
+			
+			String input = keyboard.nextLine();
+			
 			
 			if(input.equalsIgnoreCase("off")) {
 				
