@@ -63,44 +63,10 @@ public class GarageDoorSystem {
 			
 			if(input.equalsIgnoreCase("dclick")) {
 				
-				if (machine.currentState == 0) {							// door is currently closed
-					
-					machine.next(0);										// return currentState = 2
-					System.out.println("Door clicked: Door opening");
-				}
-				
-				else if (machine.currentState == 1) {							// door is currently opened
-					
-					machine.next(0);											// return currentState = 3
-					System.out.println("Door clicked: Door closing");
-				}
-				
-				else if (machine.currentState == 2) { 							// door is currently opening
-					
+				if(machine.currentState >= 0 && machine.currentState <= 3)
+				{
 					machine.next(0);
-					if (machine.motion == true) {
-						
-						System.out.println("Door clicked: Door is closing");
-					}
-					
-					else {
-						
-						System.out.println("Door clicked: Door is stopped");
-					}
-				}
-				
-				else if (machine.currentState == 3) {							// door is currently closing
-					
-					machine.next(0);
-					if (machine.motion == true) {
-						
-						System.out.println("Door clicked: Door is opening");
-					}
-					
-					else {
-						
-						System.out.println("Door clicked: Door is stopped");
-					}
+					machine.Do();
 				}
 				
 				else {														// door is stopped, shouldn't ever get into this case
