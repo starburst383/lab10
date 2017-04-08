@@ -3,7 +3,10 @@ package lab10;
 public class GarageDoor {
 	boolean open;
 	
-	
+	public GarageDoor()
+	{
+		
+	}
 	public void open()
 	{
 		
