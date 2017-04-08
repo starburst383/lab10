@@ -1,39 +1,30 @@
 package lab10;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 public class Motor {
-	int distRemain; 
 	boolean opening;
-	Timer timer;
+	boolean on;
 	
 	public Motor()
 	{
-		distRemain = 100;
-		timer = new Timer();
+		opening = true;
+		on = false;
+		
 	}
-	
 	public void on()
 	{
-		
+		on = true;
 		
 	}
 	public void off()
 	{
-		timer = null;
-		opening = !opening;
-		timer = new Timer();
-		distRemain = 50;
+	on = false;	
+		
 	}
 	public void reverse()
 	{
-		//timer.
-		timer = null;
+		
 		opening = !opening;
-		timer = new Timer();
-		distRemain = 50;
-		on();
+		
 		
 	}
 }
