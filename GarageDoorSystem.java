@@ -24,6 +24,7 @@ public class GarageDoorSystem {
 				
 				on = true;
 				query = true;
+				System.out.println("Garage door is 'on'");
 			}
 		
 			else {
@@ -33,7 +34,6 @@ public class GarageDoorSystem {
 		
 		while(on) {
 				
-			System.out.println("Garage door is 'on'");
 			System.out.println("List of Commands: \n" 
 								+ " LCLICK for light click\n"
 								+ " DCLICK for door click\n"
