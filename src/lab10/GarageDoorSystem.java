@@ -54,13 +54,11 @@ public class GarageDoorSystem {
 			if(input.equalsIgnoreCase("lclick")) {
 				
 				if(lit.light == false){
-					lit.light = true;
-					System.out.println("Light is on");
+					lit.ON();
 				}
 				
 				else if(lit.light == true){
-					lit.light =false;
-					System.out.println("Light is off");
+					lit.OFF();
 				}
 			}
 			
