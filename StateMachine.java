@@ -3,11 +3,11 @@ package lab10;
 public class StateMachine {
 int [] [] stateTable = {{2,0},{3,1,1},{4,1,2},{4,0,2}};
 int currentState;
-boolean stopped;
-public StateMachine()
-{
-	currentState = 0;
-}
+boolean stopped = false;
+	public StateMachine()
+	{
+		currentState = 0;
+	}
 
 	public int next(int event)
 	{
@@ -15,22 +15,24 @@ public StateMachine()
 		{
 			System.out.println("");
 		}
-		else if(currentState == 4)
+		else if(stopped == true)
 		{
-			if(event == 2)
+			if()
 			{
 				
 			}
-			if(event == 3)
+			if()
 			{
 				
 			}
 		}
 		else
 		{
+			int pastState = currentState;
 			currentState = stateTable[currentState][event];
 			if(currentState == 4)
 			{
+				currentState = pastState;
 				stopped = true;
 			}
 		}
