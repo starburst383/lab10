@@ -6,6 +6,7 @@ public class GarageDoor {
 	boolean open;
 	boolean light;
 	Timer timer;
+	Motor motor = new Motor();
 	
 	public GarageDoor()
 	{
