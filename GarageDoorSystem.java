@@ -63,7 +63,7 @@ public class GarageDoorSystem {
 			}
 			
 			if(input.equalsIgnoreCase("safety")){
-				
+				DOOR.open();
 			}
 			
 		
