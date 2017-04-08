@@ -94,13 +94,14 @@ public StateMachine()
 			DOOR.onLimit();
 			System.out.println("door is opened");
 			GarageDoorSystem.lit.testTimer();
-			GarageDoorSystem.lit.timer();
+			
 		}
 		else if(currentState == 2)
 		{
 			DOOR.onClick();
 			System.out.println("door is opening");
 			GarageDoorSystem.lit.testTimer();
+			GarageDoorSystem.lit.timer();
 		}
 		else if(currentState == 3)
 		{
