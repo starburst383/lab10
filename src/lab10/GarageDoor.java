@@ -2,28 +2,11 @@
 package lab10;
 
 public class GarageDoor {
-	boolean open;
-	boolean light;
-	Timer timer;
-	Motor motor = new Motor();
-	
+	Motor motor;
 	
 	public GarageDoor()
 	{
-	boolean open;
-	boolean light;
-	Timer timer;
-	Motor motor = new Motor();
-	
-	
-	public GarageDoor()
-	{
-		//closed by default
-		open = false;
-		//off by default
-		light = false;
-		//light 20 second timer
-		timer = new Timer();
+		motor = new Motor();
 		
 	}
 	public void open()
