@@ -80,7 +80,7 @@ public StateMachine()
 		{
 			DOOR.stop();
 			System.out.println("door is stopped");
-			GarageDoorSystem.lit.timer();
+			GarageDoorSystem.lit.testTimer();
 		}
 		else if(currentState == 0)
 		{
@@ -100,13 +100,13 @@ public StateMachine()
 		{
 			DOOR.onClick();
 			System.out.println("door is opening");
-			GarageDoorSystem.lit.timer();
+			GarageDoorSystem.lit.testTimer();
 		}
 		else if(currentState == 3)
 		{
 			DOOR.onClick();
 			System.out.println("door is closing");
-			GarageDoorSystem.lit.timer();
+			GarageDoorSystem.lit.testTimer();
 		}
 		else
 		{
