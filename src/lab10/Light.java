@@ -33,7 +33,7 @@ public class Light {
 	}
 	public void testTimer()
 	{
-		if (runTime < System.currentTimeMillis()-20000)
+		if (runTime < System.currentTimeMillis()-20000  && light)
 		{
 			OFF();
 		}
