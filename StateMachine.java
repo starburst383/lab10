@@ -4,57 +4,52 @@ public class StateMachine {
 int [] [] stateTable = {{2,0},{3,1,1},{4,1,2},{4,0,2}};
 int currentState;
 boolean stopped = false;
-	public StateMachine()
-	{
+boolean motion = false;
+	
+	public StateMachine() {
 		currentState = 0;
 	}
 
-	public int next(int event)
-	{
+	public int next(int event) {
 		//error, can't onSaftey if closed
-		if(currentState == 0 && event == 2)
-		{
+		if(currentState == 0 && event == 2) {
 			System.out.println("");
 		}
 		//special cases for if stopped
-		else if(stopped == true)
-		{
+		else if(stopped == true) {
 			//the old state
-			if(currentState == 2)
-			{
+			if(currentState == 2) {
 				//change to new state
-				if(event == 0)
-				{
+				if(event == 0) {
+					currentState = 3;
 					stopped = false;
+					motion = true;
 				}
-				else
-				{
+				
+				else {
 					System.out.println("stopped, can't exicute");
 				}
 			}
 			//the old state
-			if(currentState == 3)
-			{
+			if(currentState == 3) {
 				//change to new state
-				if(event == 0)
-				{
+				if(event == 0) {
+					currentState = 2;
 					stopped = false;
+					motion = true;
 				}
-				else
-				{
+				
+				else {
 					System.out.println("stopped, can't exicute");
 				}
 			}
-			
 		}
 		//no special case
-		else
-		{
+		else {
 			int pastState = currentState;
 			currentState = stateTable[currentState][event];
 			//if in stopped state
-			if(currentState == 4)
-			{
+			if(currentState == 4) {
 				//switch back to old state to keep track of direction. and turn stopped on.
 				currentState = pastState;
 				stopped = true;
@@ -64,34 +59,28 @@ boolean stopped = false;
 		return currentState;
 
 	}
-	public void Do()
-	{
-		if(stopped)
-		{
+	public void Do() {
+		
+		if(stopped) {
 			DOOR.stop();
 			System.out.println("door is stopped");
 		}
-		else if(currentState == 0)
-		{
+		else if(currentState == 0) {
 			DOOR.onLimit();
 			System.out.println("door is closed");
 		}
 
-		else if(currentState == 1)
-		{
+		else if(currentState == 1) {
 			DOOR.onLimit();
 			System.out.println("door is opened");
 		}
-		else if(currentState == 2)
-		{
+		else if(currentState == 2) {
 			DOOR.onClick();
 			System.out.println("door is opening");
 		}
-		else
-		{
+		else {
 			DOOR.onClick();
 			System.out.println("door is closing");
 		}
 	}
-
 }
