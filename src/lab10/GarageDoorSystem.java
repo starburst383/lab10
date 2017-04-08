@@ -85,7 +85,7 @@ public class GarageDoorSystem {
 				
 				if (machine.currentState >= 0 && machine.currentState <= 3) {
 					
-					machine.next(3);
+					machine.next(2);
 					machine.Do();
 				}
 			}
