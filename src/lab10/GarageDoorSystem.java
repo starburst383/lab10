@@ -76,7 +76,16 @@ public class GarageDoorSystem {
 			}
 			
 			if (input.equalsIgnoreCase("limit")) {
+				if(machine.currentState >= 0 && machine.currentState <= 3)
+				{
+					machine.next(1);
+					machine.Do();
+				}
 				
+				else {														// door is stopped, shouldn't ever get into this case
+					
+					System.out.println("Something went wrong with lclick");
+				}
 			}
 			
 			if (input.equalsIgnoreCase("safety")) {
