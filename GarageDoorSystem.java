@@ -33,7 +33,6 @@ public class GarageDoorSystem {
 		
 		while(on) {
 				
-			
 			System.out.println("Garage door is 'on'");
 			System.out.println("List of Commands: \n" 
 								+ " LCLICK for light click\n"
@@ -44,11 +43,11 @@ public class GarageDoorSystem {
 			
 			String input = keyboard.nextLine();
 			
-			
 			if(input.equalsIgnoreCase("off")) {
 				
 				System.out.println("System is now off");
-				//power = false;
+				on = false;
+				System.exit(0);
 			}
 			
 			if(input.equalsIgnoreCase("lclick")) {
@@ -70,45 +69,51 @@ public class GarageDoorSystem {
 					System.out.println("Door clicked: Door opening");
 				}
 				
-				if (machine.currentState == 1) {							// door is currently opened
+				else if (machine.currentState == 1) {							// door is currently opened
 					
-					machine.next(0);										// return currentState = 3
+					machine.next(0);											// return currentState = 3
 					System.out.println("Door clicked: Door closing");
 				}
 				
-				if (machine.currentState == 2) { 							// door is currently opening
-					
-					machine.next(0);										
-					System.out.println("Door clicked: Door is stopped");
-				}
-				
-				if (machine.currentState == 3) {							// door is currently closing
+				else if (machine.currentState == 2) { 							// door is currently opening
 					
 					machine.next(0);
-					System.out.println("Door clicked: Door is stopped");
+					if (machine.motion == true) {
+						
+						System.out.println("Door clicked: Door is closing");
+					}
+					
+					else {
+						
+						System.out.println("Door clicked: Door is stopped");
+					}
+				}
+				
+				else if (machine.currentState == 3) {							// door is currently closing
+					
+					machine.next(0);
+					if (machine.motion == true) {
+						
+						System.out.println("Door clicked: Door is opening");
+					}
+					
+					else {
+						
+						System.out.println("Door clicked: Door is stopped");
+					}
 				}
 				
 				else {														// door is stopped, shouldn't ever get into this case
 					
 					System.out.println("Something went wrong with dClick");
 				}
-				
-				/*if(DOOR.open == false) {
-					DOOR.open();
-					System.out.println("Door is opening");
-				}
-				
-				else if(DOOR.open ==true) {
-					DOOR.close();
-					System.out.println("Door is closing");
-				}*/
 			}
 			
-			if(input.equalsIgnoreCase("limit")) {
+			if (input.equalsIgnoreCase("limit")) {
 				
 			}
 			
-			if(input.equalsIgnoreCase("safety")) {
+			if (input.equalsIgnoreCase("safety")) {
 				DOOR.open();
 			}
 			
