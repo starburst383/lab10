@@ -5,6 +5,7 @@ int [] [] stateTable = {{2,0},{3,1,1},{4,1,2},{4,0,2}};
 int currentState;
 boolean stopped = false;
 boolean motion = false;
+GarageDoor DOOR = new GarageDoor();
 	
 	public StateMachine() {
 		currentState = 0;
