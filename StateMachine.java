@@ -64,4 +64,34 @@ boolean stopped = false;
 		return currentState;
 
 	}
+	public void Do()
+	{
+		if(stopped)
+		{
+			DOOR.stop();
+			System.out.println("door is stopped");
+		}
+		else if(currentState == 0)
+		{
+			DOOR.onLimit();
+			System.out.println("door is closed");
+		}
+
+		else if(currentState == 1)
+		{
+			DOOR.onLimit();
+			System.out.println("door is opened");
+		}
+		else if(currentState == 2)
+		{
+			DOOR.onClick();
+			System.out.println("door is opening");
+		}
+		else
+		{
+			DOOR.onClick();
+			System.out.println("door is closing");
+		}
+	}
+
 }
