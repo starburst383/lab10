@@ -80,27 +80,33 @@ public StateMachine()
 		{
 			DOOR.stop();
 			System.out.println("door is stopped");
+			GarageDoorSystem.lit.timer();
 		}
 		else if(currentState == 0)
 		{
 			DOOR.onLimit();
 			System.out.println("door is closed");
+			GarageDoorSystem.lit.testTimer();
 		}
 
 		else if(currentState == 1)
 		{
 			DOOR.onLimit();
 			System.out.println("door is opened");
+			GarageDoorSystem.lit.testTimer();
+			GarageDoorSystem.lit.timer();
 		}
 		else if(currentState == 2)
 		{
 			DOOR.onClick();
 			System.out.println("door is opening");
+			GarageDoorSystem.lit.timer();
 		}
 		else if(currentState == 3)
 		{
 			DOOR.onClick();
 			System.out.println("door is closing");
+			GarageDoorSystem.lit.timer();
 		}
 		else
 		{
