@@ -11,17 +11,20 @@ boolean stopped = false;
 
 	public int next(int event)
 	{
+		//error, can't onSaftey if closed
 		if(currentState == 0 && event == 2)
 		{
 			System.out.println("");
 		}
+		//special cases for if stopped
 		else if(stopped == true)
 		{
+			//the old state
 			if(currentState == 2)
 			{
+				//change to new state
 				if(event == 0)
 				{
-					currentState = 3;
 					stopped = false;
 				}
 				else
@@ -29,11 +32,12 @@ boolean stopped = false;
 					System.out.println("stopped, can't exicute");
 				}
 			}
+			//the old state
 			if(currentState == 3)
 			{
+				//change to new state
 				if(event == 0)
 				{
-					currentState = 2;
 					stopped = false;
 				}
 				else
@@ -41,17 +45,22 @@ boolean stopped = false;
 					System.out.println("stopped, can't exicute");
 				}
 			}
+			
 		}
+		//no special case
 		else
 		{
 			int pastState = currentState;
 			currentState = stateTable[currentState][event];
+			//if in stopped state
 			if(currentState == 4)
 			{
+				//switch back to old state to keep track of direction. and turn stopped on.
 				currentState = pastState;
 				stopped = true;
 			}
 		}
+		//return state.
 		return currentState;
 
 	}
