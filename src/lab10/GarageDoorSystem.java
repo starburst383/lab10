@@ -25,6 +25,12 @@ public class GarageDoorSystem {
 				on = true;
 				query = true;
 				System.out.println("Garage door is 'on'");
+				System.out.println("List of Commands: \n" 
+						+ " LCLICK for light click\n"
+						+ " DCLICK for door click\n"
+						+ " LIMIT for limit switch\n"
+						+ " SAFETY for safety trigger \n"
+						+ " OFF Power down and exit the program ");
 			}
 		
 			else {
@@ -34,12 +40,6 @@ public class GarageDoorSystem {
 		
 		while(on) {
 				
-			System.out.println("List of Commands: \n" 
-								+ " LCLICK for light click\n"
-								+ " DCLICK for door click\n"
-								+ " LIMIT for limit switch\n"
-								+ " SAFETY for safety trigger \n"
-								+ " OFF Power down and exit the program ");
 			System.out.println("Enter a command: ");
 			
 			String input = keyboard.nextLine();
