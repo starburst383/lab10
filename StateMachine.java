@@ -1,7 +1,7 @@
 package lab10;
 
 public class StateMachine {
-int [] [] stateTable = {{1,0},{3,1,1},{4,0,2},{4,0,2}};
+int [] [] stateTable = {{2,0},{2,1,1},{4,1,2},{4,0,2}};
 int currentState;
 boolean stopped;
 public StateMachine()
