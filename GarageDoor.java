@@ -1,11 +1,15 @@
 package lab10;
 
+import java.util.Timer;
+
 public class GarageDoor {
 	boolean open;
+	Timer timer;
 	
 	public GarageDoor()
 	{
-		
+		open = false;
+		timer = new Timer();
 	}
 	public void open()
 	{
