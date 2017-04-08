@@ -20,7 +20,7 @@ public class Motor {
 		
 		if(opening = true)
 		{
-		timer.schedule(new FinTaskO(), distRemain);
+			timer.schedule(new FinTaskO(), distRemain);
 		}
 		else
 		{
