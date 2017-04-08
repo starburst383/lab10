@@ -21,6 +21,7 @@ boolean stopped = false;
 			{
 				if(event == 0)
 				{
+					currentState = 3;
 					stopped = false;
 				}
 				else
@@ -32,6 +33,7 @@ boolean stopped = false;
 			{
 				if(event == 0)
 				{
+					currentState = 2;
 					stopped = false;
 				}
 				else
