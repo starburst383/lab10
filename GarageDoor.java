@@ -4,29 +4,37 @@ import java.util.*;
 
 public class GarageDoor {
 	
-	boolean open;
+	boolean opened;
+	boolean closed;
+	boolean stopped;
 	Timer timer;
 	Motor motor = new Motor();
 	
 	public GarageDoor() {
 		//closed by default
-		open = false;
+		opened = false;
+		closed = true;
+		// door not moving so therefore stopped
+		stopped = true;
 		//light 20 second timer
 		timer = new Timer();
 	}
 	
 	public void open() {
 		
-		motor.on();
+		opened = true;
+		closed = false;
+		stopped = true;
 	}
 	
 	public void close() {
 		
-		
+		closed = false;
 	}
 	
 	public void stop() {
 		
+		stopped = true; 
 	}
 	
 	public void onClick() {
@@ -39,5 +47,7 @@ public class GarageDoor {
 	
 	public void onLimit() {
 		
-	}	
+	}
+	//will turn the light off after 20 seconds
+	
 }
