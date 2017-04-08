@@ -1,18 +1,18 @@
 package lab10;
-import java.time.*;
-
+import java.util.concurrent.TimeUnit;
 public class Light {
 	//current time
-	Clock c;
+	
 	//snapshot of time
-	Instant snap;
+	//java.util.concurrent.TimeUnit.
+	long runTime;
 	boolean light;
 	
 	public Light () {
 		
 		//off by default
 		light = false;
-		c.getZone();
+		
 	}
 	
 	public void ON()
@@ -29,15 +29,14 @@ public class Light {
 	public void timer()
 	{
 		ON();
-		snap = c.instant();
+		runTime = System.currentTimeMillis();
 	}
 	public void testTimer()
 	{
-		if (snap.toEpochMilli() < c.millis()-20000)
+		if (runTime < System.currentTimeMillis()-20000)
 		{
 			OFF();
 		}
 	}
 	
 }
-
