@@ -1,4 +1,4 @@
-package lab10;
+package Garage;
 
 import java.util.*;
 
@@ -24,6 +24,7 @@ public class GarageDoorSystem {
 				
 				on = true;
 				query = true;
+				System.out.println("Garage door is 'on'");
 			}
 		
 			else {
@@ -33,7 +34,6 @@ public class GarageDoorSystem {
 		
 		while(on) {
 				
-			System.out.println("Garage door is 'on'");
 			System.out.println("List of Commands: \n" 
 								+ " LCLICK for light click\n"
 								+ " DCLICK for door click\n"
@@ -63,28 +63,18 @@ public class GarageDoorSystem {
 			
 			if(input.equalsIgnoreCase("dclick")) {
 				
-				if(machine.currentState >= 0 && machine.currentState <= 3)
-				{
+				if	(machine.currentState >= 0 && machine.currentState <= 3) {
 					machine.next(0);
 					machine.Do();
-				}
-				
-				else {														// door is stopped, shouldn't ever get into this case
-					
-					System.out.println("Something went wrong with dClick");
 				}
 			}
 			
 			if (input.equalsIgnoreCase("limit")) {
-				if(machine.currentState >= 0 && machine.currentState <= 3)
-				{
+				
+				if (machine.currentState >= 0 && machine.currentState <= 3) {
+					
 					machine.next(1);
 					machine.Do();
-				}
-				
-				else {														// door is stopped, shouldn't ever get into this case
-					
-					System.out.println("Something went wrong with lclick");
 				}
 			}
 			
