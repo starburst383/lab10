@@ -17,13 +17,27 @@ boolean stopped = false;
 		}
 		else if(stopped == true)
 		{
-			if()
+			if(currentState == 2)
 			{
-				
+				if(event == 0)
+				{
+					stopped = false;
+				}
+				else
+				{
+					System.out.println("stopped, can't exicute");
+				}
 			}
-			if()
+			if(currentState == 3)
 			{
-				
+				if(event == 0)
+				{
+					stopped = false;
+				}
+				else
+				{
+					System.out.println("stopped, can't exicute");
+				}
 			}
 		}
 		else
